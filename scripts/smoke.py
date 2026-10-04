@@ -2,8 +2,6 @@ import json, re, time
 from pathlib import Path
 from genlayer_py import create_account, create_client
 from genlayer_py.chains import studionet
-from genlayer_py.types import TransactionStatus
-
 ROOT = Path(__file__).parents[1]
 ENV = (ROOT.parents[3] / 'accounts.env').read_text()
 ADDRESS = json.loads((ROOT / 'deployment.json').read_text())['contractAddress']
@@ -13,7 +11,7 @@ def account(number):
 def client(number): return create_client(chain=studionet, account=account(number))
 def write(number, name, args):
  c = client(number); tx = c.write_contract(address=ADDRESS, function_name=name, args=args); print(name + '_tx=' + str(tx), flush=True)
- receipt = c.wait_for_transaction_receipt(transaction_hash=tx, status=TransactionStatus.FINALIZED, retries=180, interval=5000, full_transaction=True)
+ receipt = c.wait_for_transaction_receipt(transaction_hash=tx, wait_until='finalized', retries=180, interval=5000, full_transaction=True)
  leader = (receipt.get('consensus_data', {}).get('leader_receipt') or [{}])[0]
  assert receipt.get('result_name') == 'MAJORITY_AGREE' and leader.get('execution_result') == 'SUCCESS'
  return str(tx)
