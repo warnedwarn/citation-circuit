@@ -4,5 +4,12 @@
   "contractAddress": "0xF44145fE227e268437dCbfA49B9FC05E92A0Ce1E",
   "deploymentTransaction": "0x6693fdff3082f3a9a4def95f7da9dccc2ddf67cf5e61919611583cf50cdf204f",
   "sourceSha256": "f03e8949259d85e0cb40c6b3c13fe71dfbb2ce90ea269cce60dc01a64f538dd6",
-  "repository": "https://github.com/warnedwarn/citation-circuit"
+  "sourceCommit": "c0f77f0dff2f67a60f24535a1c05614b1cb8c917",
+  "repository": "https://github.com/warnedwarn/citation-circuit",
+  "publicSite": "https://citation-circuit.pages.dev/",
+  "cloudflareDeployment": "https://c7bf9269.citation-circuit.pages.dev/",
+  "liveRecordId": "CIRCUIT-1791084135",
+  "liveState": "SEALED",
+  "browserRecordId": "CIRCUIT-1791085026062",
+  "browserState": "SEALED"
 }

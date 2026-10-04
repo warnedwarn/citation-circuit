@@ -1,0 +1,16 @@
+{
+  "site": "https://citation-circuit.pages.dev/",
+  "cloudflareDeployment": "https://c7bf9269.citation-circuit.pages.dev/",
+  "contract": "0xF44145fE227e268437dCbfA49B9FC05E92A0Ce1E",
+  "circuitId": "CIRCUIT-1791085026062",
+  "state": "SEALED",
+  "relations": ["SUMMARIZES", "CITES"],
+  "transactions": {
+    "create": "0x477499c9bd6408065623577996f70368ea1e7c64b3394e9121eab969057d7467",
+    "first": "0x54755351e35a5e074032b91dfd87d19d5f08b7dea905296b477520c9cf9cbc04",
+    "second": "0x2ff49fb91ee507c370ee18c3b0ec7cc710cca20e4358c645fc84115722cc4b33",
+    "seal": "0xc0735b997c60e280dd2dee131efaf6d5bdb4df05d226d720c10696b73e8b7970"
+  },
+  "observedStatus": "DEMO FINALIZED",
+  "fixtureDisclosure": "Temporary browser wallets and repository evidence pages are operator-controlled fixtures."
+}

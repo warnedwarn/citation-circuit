@@ -20,3 +20,13 @@ genvm-lint check contracts/contract.py
 ```
 
 The included web records and temporary wallets are operator-controlled technical fixtures.
+
+## Survey coordinates
+
+- Public atlas: https://citation-circuit.pages.dev/
+- Source repository: https://github.com/warnedwarn/citation-circuit
+- StudioNet contract: `0xF44145fE227e268437dCbfA49B9FC05E92A0Ce1E`
+- Verified live circuit: `CIRCUIT-1791084135` — `SEALED`, two independently finalized edges
+- Canonical-site replay: `CIRCUIT-1791085026062` — `SEALED`, relations `SUMMARIZES` and `CITES`
+
+Exact deployment, lifecycle, browser-run, and digest records live in `deployment.json` and `evidence/`.

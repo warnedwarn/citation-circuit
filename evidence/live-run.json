@@ -1,0 +1,40 @@
+{
+  "circuitId": "CIRCUIT-1791084135",
+  "transactions": {
+    "create": "0x14646c0a59c4f20f9aa64a1183e47673bcd25715be34870e034c5d2b99d735fe",
+    "first": "0x233264d518e0e37e4b2a10155c57ce1b80ec590aba8370ac59c1c25a4e51ba2d",
+    "second": "0xf52f3e397d449e620c5bdce2f5490a796a7147d8cac179210a01945c8783673b",
+    "seal": "0x173dd81d4788b724a51b4197a0b0cc49c2b08d7832008a1a4271e88071171a08"
+  },
+  "state": {
+    "edges": [
+      {
+        "contributor": "0xAD049E0Edc298C97552eD60071a35bfc60181FD4",
+        "id": "EDGE-A-1791084173",
+        "relation": "SUMMARIZES",
+        "source_digest": "1202d5f57894438a6f52d28bcb230662926ff4faa9de08eb916d9120358be459",
+        "source_origin": "raw.githubusercontent.com",
+        "source_url": "https://raw.githubusercontent.com/warnedwarn/citation-circuit/main/docs/evidence/source-note.md",
+        "target_digest": "7936e01668103a9893eba7cee24bd5192ad7065b0a65bb3c715ddf50fcc06502",
+        "target_origin": "cdn.jsdelivr.net",
+        "target_url": "https://cdn.jsdelivr.net/gh/warnedwarn/citation-circuit@main/docs/evidence/target-handbook.md"
+      },
+      {
+        "contributor": "0xAD049E0Edc298C97552eD60071a35bfc60181FD4",
+        "id": "EDGE-B-1791084469",
+        "relation": "SUMMARIZES",
+        "source_digest": "1202d5f57894438a6f52d28bcb230662926ff4faa9de08eb916d9120358be459",
+        "source_origin": "raw.githack.com",
+        "source_url": "https://raw.githack.com/warnedwarn/citation-circuit/main/docs/evidence/source-note.md",
+        "target_digest": "7936e01668103a9893eba7cee24bd5192ad7065b0a65bb3c715ddf50fcc06502",
+        "target_origin": "github.com",
+        "target_url": "https://github.com/warnedwarn/citation-circuit/raw/main/docs/evidence/target-handbook.md"
+      }
+    ],
+    "id": "CIRCUIT-1791084135",
+    "owner": "0x013A0745a3b2DbF87f4AB377266fCcb7e6eEC88A",
+    "state": "SEALED",
+    "title": "Harbor access references"
+  },
+  "fixtureDisclosure": "Wallets and evidence pages are operator-controlled fixtures."
+}
