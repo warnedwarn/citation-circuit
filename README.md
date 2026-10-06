@@ -25,8 +25,7 @@ The included authorities, records, and wallets are operator-controlled technical
 
 - Public atlas: https://citation-circuit.pages.dev/
 - Source repository: https://github.com/warnedwarn/citation-circuit
-- StudioNet contract: `0xF44145fE227e268437dCbfA49B9FC05E92A0Ce1E`
-- Verified live circuit: `CIRCUIT-1791084135` — `SEALED`, two independently finalized edges
-- Canonical-site replay: `CIRCUIT-1791085026062` — `SEALED`, relations `SUMMARIZES` and `CITES`
+- Corrected StudioNet contract: `0xd74988239Fc7dE3178D23e840F020ae19B822e06`
+- Verified protocol gate: `CIRCUIT-1791257575` — `CONSUMED`, relation `CITES`, decision `AUTHORIZED`
 
-Exact deployment, lifecycle, browser-run, and digest records live in `deployment.json` and `evidence/`.
+Exact deployment, lifecycle, and ordered digest records live in `deployment.json` and `evidence/`.

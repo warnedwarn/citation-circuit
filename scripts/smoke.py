@@ -26,14 +26,17 @@ def write(number, name, args):
  assert receipt.get('result_name') == 'MAJORITY_AGREE' and leader.get('execution_result') == 'SUCCESS'
  return str(tx)
 circuit_id = os.environ.get('CIRCUIT_ID') or 'CIRCUIT-' + str(int(time.time()))
+authority_suffix = str(int(time.time()))[-8:]
+source_authority = 'RAW_NOTE_' + authority_suffix
+target_authority = 'CDN_HANDBOOK_' + authority_suffix
 source = 'https://raw.githubusercontent.com/warnedwarn/citation-circuit/main/docs/evidence/source-note.md'
 target = 'https://cdn.jsdelivr.net/gh/warnedwarn/citation-circuit@main/docs/evidence/target-handbook.md'
 beneficiary = account(2).address
 transactions = {
- 'approveSource': write(2, 'approve_authority', ['RAW_NOTE','Repository source note','https://raw.githubusercontent.com/warnedwarn/citation-circuit/']),
- 'approveTarget': write(2, 'approve_authority', ['CDN_HANDBOOK','Repository target handbook','https://cdn.jsdelivr.net/gh/warnedwarn/citation-circuit@main/docs/evidence/']),
- 'create': write(2, 'create_circuit', [circuit_id,'Harbor handbook release gate','SUMMARIZES',1,beneficiary,'Release the approved handbook package to the named beneficiary']),
- 'trace': write(2, 'trace_link', [circuit_id,'EDGE-'+str(int(time.time())),'RAW_NOTE',source,'CDN_HANDBOOK',target]),
+ 'approveSource': write(2, 'approve_authority', [source_authority,'Repository source note','https://raw.githubusercontent.com/warnedwarn/citation-circuit/']),
+ 'approveTarget': write(2, 'approve_authority', [target_authority,'Repository target handbook','https://cdn.jsdelivr.net/gh/warnedwarn/citation-circuit@main/docs/evidence/']),
+ 'create': write(2, 'create_circuit', [circuit_id,'Harbor handbook release gate','CITES',1,beneficiary,'Release the approved handbook package to the named beneficiary']),
+ 'trace': write(2, 'trace_link', [circuit_id,'EDGE-'+str(int(time.time())),source_authority,source,target_authority,target]),
  'settle': write(2, 'settle_circuit', [circuit_id]),
  'consume': write(2, 'consume_action', [circuit_id])
 }
