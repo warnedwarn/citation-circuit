@@ -1,4 +1,4 @@
-import hashlib, json, os, re
+import hashlib, json, os, re, subprocess
 from pathlib import Path
 from genlayer_py import create_account, create_client
 from genlayer_py.chains import studionet
@@ -13,6 +13,7 @@ receipt = client.wait_for_transaction_receipt(transaction_hash=transaction, wait
 leader = (receipt.get('consensus_data', {}).get('leader_receipt') or [{}])[0]
 address = receipt.get('data', {}).get('contract_address') or receipt.get('to_address')
 assert receipt.get('result_name') == 'MAJORITY_AGREE' and leader.get('execution_result') == 'SUCCESS'
-result = {'network':'StudioNet','account':'warnedwarn','contractAddress':address,'deploymentTransaction':str(transaction),'sourceSha256':hashlib.sha256(code.encode()).hexdigest(),'repository':'https://github.com/warnedwarn/citation-circuit'}
+commit = subprocess.check_output(['git','rev-parse','HEAD'], cwd=ROOT, text=True).strip()
+result = {'network':'StudioNet','account':'warnedwarn','contractAddress':address,'deploymentTransaction':str(transaction),'deploymentConsensus':receipt.get('result_name'),'deploymentExecution':leader.get('execution_result'),'sourceSha256':hashlib.sha256(code.encode()).hexdigest(),'sourceCommit':commit,'repository':'https://github.com/warnedwarn/citation-circuit'}
 (ROOT / 'deployment.json').write_text(json.dumps(result, indent=2) + '\n')
 print(json.dumps(result, indent=2), flush=True)

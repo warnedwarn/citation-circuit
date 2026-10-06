@@ -2,9 +2,10 @@
 
 | Requirement | Proof target | Status |
 |---|---|---|
-| Distinct source origins | Contract guard and negative test | PASS |
-| Validator-bound relation and digests | Comparative principle and source fields | PASS |
-| Unique graph edges | Pair and edge replay guards | PASS |
-| Complete lifecycle | `evidence/live-run.json`: create, trace twice, seal, read | PASS |
-| Deployed source match | `evidence/deployment-verification.json` | PASS |
-| Public browser workflow | `evidence/browser-run.json`: canonical Cloudflare demo | PASS |
+| Neutral authority boundary | Governor registry plus origin and path-prefix binding for both distinct endpoints | PASS source, deployment pending |
+| Auditable settled relationship | Relation, authority IDs, ordered URLs, and ordered full-response digests are stored per edge | PASS tests |
+| Concrete downstream necessity | Frozen relation threshold determines `AUTHORIZED` or `DENIED`; only beneficiary can consume once | PASS tests, deployment pending |
+| Unique graph edges | Authority-pair and edge replay guards | PASS tests |
+| Complete lifecycle | approve authorities, create gate, trace, settle, consume, and read | UNVERIFIED |
+| Deployed source match | new manifest and fetched-source digest | UNVERIFIED |
+| Public browser workflow | canonical Cloudflare flow against corrected deployment | UNVERIFIED |

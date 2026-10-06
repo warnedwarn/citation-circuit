@@ -28,15 +28,17 @@ def write(number, name, args):
 circuit_id = os.environ.get('CIRCUIT_ID') or 'CIRCUIT-' + str(int(time.time()))
 source = 'https://raw.githubusercontent.com/warnedwarn/citation-circuit/main/docs/evidence/source-note.md'
 target = 'https://cdn.jsdelivr.net/gh/warnedwarn/citation-circuit@main/docs/evidence/target-handbook.md'
-source_two = 'https://raw.githack.com/warnedwarn/citation-circuit/main/docs/evidence/source-note.md'
-target_two = 'https://github.com/warnedwarn/citation-circuit/raw/main/docs/evidence/target-handbook.md'
-transactions = {'create': os.environ.get('CREATE_TX'), 'first': os.environ.get('FIRST_TX')}
-if not transactions['create']: transactions['create'] = write(2, 'create_circuit', [circuit_id, 'Harbor access references'])
-if not transactions['first']: transactions['first'] = write(3, 'trace_link', [circuit_id, 'EDGE-A-' + str(int(time.time())), source, target])
-transactions['second'] = write(3, 'trace_link', [circuit_id, 'EDGE-B-' + str(int(time.time())), source_two, target_two])
-transactions['seal'] = write(2, 'seal_circuit', [circuit_id])
+beneficiary = account(2).address
+transactions = {
+ 'approveSource': write(2, 'approve_authority', ['RAW_NOTE','Repository source note','https://raw.githubusercontent.com/warnedwarn/citation-circuit/']),
+ 'approveTarget': write(2, 'approve_authority', ['CDN_HANDBOOK','Repository target handbook','https://cdn.jsdelivr.net/gh/warnedwarn/citation-circuit@main/docs/evidence/']),
+ 'create': write(2, 'create_circuit', [circuit_id,'Harbor handbook release gate','SUMMARIZES',1,beneficiary,'Release the approved handbook package to the named beneficiary']),
+ 'trace': write(2, 'trace_link', [circuit_id,'EDGE-'+str(int(time.time())),'RAW_NOTE',source,'CDN_HANDBOOK',target]),
+ 'settle': write(2, 'settle_circuit', [circuit_id]),
+ 'consume': write(2, 'consume_action', [circuit_id])
+}
 state = client(2).read_contract(address=ADDRESS, function_name='get_circuit', args=[circuit_id])
-assert state['state'] == 'SEALED' and len(state['edges']) == 2
-proof = {'circuitId':circuit_id,'transactions':transactions,'state':state,'fixtureDisclosure':'Wallets and evidence pages are operator-controlled fixtures.'}
+assert state['state'] == 'CONSUMED' and state['decision'] == 'AUTHORIZED' and state['matched_count'] == 1
+proof = {'circuitId':circuit_id,'transactions':transactions,'state':state,'fixtureDisclosure':'The approved authorities, wallet, and evidence pages are operator-controlled fixtures used to prove neutral relation settlement and one-time action consumption.'}
 (ROOT / 'evidence').mkdir(exist_ok=True); (ROOT / 'evidence' / 'live-run.json').write_text(json.dumps(proof, indent=2) + '\n')
 print(json.dumps(proof, indent=2), flush=True)
